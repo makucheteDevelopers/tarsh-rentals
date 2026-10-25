@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TARSH-Rentals | Makuchete Developers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;margin:0;padding:0;background:#fff}
+header{text-align:center;padding:15px;background:#f8f9fa;border-bottom:2px solid #10ac84}
+.card{border:1px solid #ddd;padding:12px;margin:12px;border-radius:12px;box-shadow:0 2px 5px #eee}
+.btn{padding:10px 14px;color:white;text-decoration:none;border-radius:6px;display:inline-block;margin-top:6px}
+.wa{background:#25D366} .search{padding:15px;text-align:center;background:#eef}
+footer{text-align:center;padding:20px;background:#111;color:white;margin-top:20px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h2 style="margin:0;color:#2e86de">TARSH-Rentals</h2>
+<p style="margin:3px;color:#10ac84;font-weight:bold">by Makuchete Developers</p>
+<p style="margin:3px;font-size:11px">📧 {{email}} | Mkoba, Gweru | 2026</p>
+</header>
+
+<div class="search">
+<form>
+<input name="location" placeholder="Location e.g Mkoba">
+<input name="price" type="number" placeholder="Max price">
+<button style="padding:8px 15px;background:#2e86de;color:white;border:none;border-radius:5px">SEARCH</button>
+</form>
+<a href="/landlord" style="display:inline-block;margin-top:10px;color:#2e86de">Landlord - Upload House</a>
+</div>
+
+{% for h in houses %}
+<div class="card">
+<img src="/static/images/{{h.image}}" style="width:100%;max-width:400px;border-radius:10px" onerror="this.style.display='none'">
+<h3 style="margin:8px 0">{{h.location}} - ${{h.price}}</h3>
+<p>🛏️ {{h.rooms}} | ✨ {{h.amenities}} | ✅ {{h.status}}</p>
+<a class="btn wa" href="https://wa.me/263{{h.phone[1:]}}?text=Hi,%20I%20saw%20your%20house%20in%20{{h.location}}%20on%20TARSH-Rentals%20by%20Makuchete%20Developers.%20Is%20it%20still%20available?" target="_blank">WhatsApp: {{h.phone}}</a>
+</div>
+{% else %}
+<div style="text-align:center;padding:30px;color:gray">No houses yet. Be first landlord in Gweru! Be part of Makuchete history!</div>
+{% endfor %}
+
+<footer>
+<strong>Makuchete Developers</strong><br>
+Building Gweru's Future, One Line of Code at a Time<br>
+📧 {{email}} | 📍 Mkoba, Gweru<br>
+© 2026 TARSH-Rentals. All Rights Reserved.<br>
+<em>From MSU to the World</em>
+</footer>
+</body>
+</html>

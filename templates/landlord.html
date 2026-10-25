@@ -1,0 +1,20 @@
+<!DOCTYPE html><body style="font-family:Arial;padding:15px">
+<h2>Landlord - Upload | Makuchete Developers</h2>
+<p style="color:gray">{{email}}</p>
+<form method="post" enctype="multipart/form-data" style="background:#f9f9f9;padding:15px;border-radius:10px">
+Location*: <input name="location" required><br><br>
+Price $*: <input name="price" type="number" required><br><br>
+Rooms*: <input name="rooms" required><br><br>
+Phone*: <input name="phone" required><br><br>
+Amenities: <input name="amenities"><br><br>
+Photo: <input type="file" name="photo" accept="image/*"><br><br>
+<button style="padding:10px 20px;background:#2e86de;color:white;border:none;border-radius:5px">UPLOAD HOUSE</button>
+</form>
+<a href="/">← Back to Houses</a>
+<hr>
+<h3>My Listings</h3>
+{% for h in houses %}
+{{h.id}} - {{h.location}} - ${{h.price}} - {{h.status}} - <a href="/toggle/{{h.id}}">Toggle Taken/Available</a><br>
+{% endfor %}
+<footer style="text-align:center;margin-top:30px;padding:15px;background:#111;color:white">Makuchete Developers | {{email}}</footer>
+</body>

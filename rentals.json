@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "location": "senga",
+    "price": 50,
+    "rooms": "1 room",
+    "phone": "0777037403",
+    "amenities": "gated and durawalled",
+    "image": "no_image.jpg",
+    "status": "Available"
+  }
+]
